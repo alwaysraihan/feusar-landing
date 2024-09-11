@@ -1,67 +1,72 @@
-"use client";
-import React, { useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Sphere } from "@react-three/drei";
-import { pointsInner, pointsOuter } from "./utils";
-import { Group } from "three";
+import Header from "@src/components/Header";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-const ParticleRing = () => {
+const HomePage = () => {
   return (
-    <div className="relative">
-      <Canvas
-        camera={{
-          position: [10, -7.5, -5],
-        }}
-        style={{ height: "100vh" }}
-        className="bg-slate-900"
-      >
-        <OrbitControls maxDistance={20} minDistance={10} />
-        <directionalLight />
-        <pointLight position={[-30, 0, -30]} power={10.0} />
-        <PointCircle />
-      </Canvas>
+    <div className="min-h-svh bg-black ">
+      <div className="relative min-h-screen">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <video
+            src="https://cdn.prod.website-files.com/606764a311491eafe0e305af%2F668ceed4243a77799e125361_8_Header_Video%206-transcode.mp4"
+            autoPlay
+            loop
+            muted
+            className="w-full h-full object-cover"
+          ></video>
 
-      <h1 className="absolute text-pink-500 text-center top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] font-medium text-2xl md:text-5xl pointer-events-none">
-        Feusar is Coming Soon to Change Your Experience
-      </h1>
+          {/* Blackish Overlay */}
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10">
+          <Header />
+          <div className="min-h-svh lg:min-h-[85vh] flex justify-center items-center">
+            <div className="w-full max-w-4xl  text-center">
+              <h1 className="text-4xl md:text-6xl lg:text-[80px] xl:text-8xl font-bold text-white mb-4">
+                Feusar
+              </h1>
+              <p className="text-white text-base md:text-lg font-medium mb-12">
+                Empower Your Ambassadors to Sell: A Revolutionary <br /> Social
+                Commerce Platform for Short Videos, Shopping, and Rewards
+              </p>
+              <div className="flex flex-col lg:flex-row gap-5 items-center justify-center">
+                <div className="bg-white py-1 px-2 rounded-xl w">
+                  <Image
+                    src="/images/qr.png"
+                    alt="QR Code"
+                    width={130}
+                    height={130}
+                  ></Image>
+                </div>
+                <div className="flex flex-col gap-4 items-center">
+                  <Link href="">
+                    <Image
+                      src="/images/play-store.png"
+                      width={192}
+                      height={64}
+                      alt="playstore"
+                    ></Image>
+                  </Link>
+                  <Link href="">
+                    <Image
+                      src="/images/app-store.png"
+                      width={192}
+                      height={64}
+                      alt="appstore"
+                    ></Image>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
-const PointCircle = () => {
-  const ref = useRef<Group | null>(null);
-
-  useFrame(({ clock }) => {
-    if (ref.current?.rotation) {
-      ref.current.rotation.z = clock.getElapsedTime() * 0.05;
-    }
-  });
-
-  return (
-    <group ref={ref}>
-      {pointsInner.map((point) => (
-        <Point key={point.idx} position={point.position} color={point.color} />
-      ))}
-      {pointsOuter.map((point) => (
-        <Point key={point.idx} position={point.position} color={point.color} />
-      ))}
-    </group>
-  );
-};
-
-const Point = ({ position, color }: { position: number[]; color: string }) => {
-  return (
-    // @ts-expect-error - Passing a num array as opposed to a Vector3 is acceptable
-    // and the referenced method in the documentation
-    <Sphere position={position} args={[0.1, 10, 10]}>
-      <meshStandardMaterial
-        emissive={color}
-        emissiveIntensity={0.5}
-        roughness={0.5}
-        color={color}
-      />
-    </Sphere>
-  );
-};
-
-export default ParticleRing;
+export default HomePage;
