@@ -26,7 +26,7 @@ const HomePage = () => {
           <Header />
           <div className="min-h-svh lg:min-h-[85vh] flex justify-center items-center">
             <div className="w-full max-w-4xl  text-center">
-              <h1 className="text-4xl md:text-6xl lg:text-[80px] xl:text-8xl font-bold text-white mb-4">
+              <h1 className="text-4xl md:text-6xl lg:text-[80px] xl:text-8xl font-bold text-[#ff2474] mb-4">
                 Feusar
               </h1>
               <p className="text-white text-base md:text-lg font-medium mb-12">
