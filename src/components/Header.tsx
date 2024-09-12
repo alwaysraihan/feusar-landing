@@ -77,7 +77,7 @@ const Header = () => {
                   href="#"
                   className="text-white font-medium hover:text-[#ff2474] duration-300"
                 >
-                  Services
+                  Features
                 </a>
               </li>
               <li>
