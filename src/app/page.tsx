@@ -31,7 +31,7 @@ const HomePage = () => {
               </h1>
               <p className="text-white text-base md:text-lg font-medium mb-12">
                 A Revolutionary Platform for Short Videos, <br /> Earn Money By
-                Creating Videos. Explor The Next Generation App.
+                Creating Videos. Explore The Next Generation App.
                 {/* Empower Your Ambassadors to Sell: A Revolutionary <br /> Social
                 Commerce Platform for Short Videos, Shopping, and Rewards */}
               </p>
