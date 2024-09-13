@@ -30,10 +30,10 @@ const HomePage = () => {
                 Feusar
               </h1>
               <p className="text-white text-base md:text-lg font-medium mb-12">
-                A Revolutionary Platform for Short Videos, <br /> Earn Money By
-                Creating Videos. Explore The Next Generation App.
-                {/* Empower Your Ambassadors to Sell: A Revolutionary <br /> Social
-                Commerce Platform for Short Videos, Shopping, and Rewards */}
+                {/* A Revolutionary Platform for Short Videos, <br /> Earn Money By
+                Creating Videos. Explore The Next Generation App. */}
+                Empower Your Ambassadors to Sell: A Revolutionary <br /> Social
+                Commerce Platform for Short Videos, Shopping, and Rewards
               </p>
               <div className="flex flex-col lg:flex-row gap-5 items-center justify-center">
                 <div className="bg-white py-1 px-2 rounded-xl w">
